@@ -1,4 +1,5 @@
 package com.company;
+
 public class Main {
     private int[] stack = new int[2];
     private int top = -1;
@@ -15,10 +16,10 @@ public class Main {
         if (top == -1)
             System.out.println("the stack is empty");
         else if (top > 0)
-            System.out.println("("+stack[top]+")  positive Number");
+            System.out.println("(" + stack[top] + ")  positive Number");
 
         else
-            System.out.println("("+stack[top]+")  minus Number");
+            System.out.println("(" + stack[top] + ")  minus Number");
         top--;
     }
 
