@@ -2,7 +2,7 @@ package com.company;
 
 public class Main {
     public static void main(String[] args) {
-      //  Animal animal;
+    
         Animal animal1 = new Dog();
         animal1.eat();
         animal1.run();
