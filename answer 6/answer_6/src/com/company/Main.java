@@ -1,42 +1,55 @@
 package com.company;
 
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Main {
-    int[] que = new int[4];
-    int rear = -1;
-    int front = -1;
 
-    public void insert(int y) {
-        if (rear == 3)
-            System.out.println("the queues is full");
-        else
-            rear++;
-        que[rear] = y;
-
+    // Utility function to print
+    // the contents of a stack
+    static void printQueue(Queue<Integer> queue)
+    {
+        while (!queue.isEmpty())
+            System.out.println(queue.remove() + " ");
     }
 
-    public void delete() {
-        if (rear == front)
-            System.out.println("the queues is empty");
-        else  if (que[rear] % 2 == 1)
-                front++;
-                System.out.println("the queues : " + que[front]);
+    // Function to delete all even
+    // elements from the stack
+    static void deleteEven(Queue<Integer> queue)
+    {
+        Queue<Integer> queue1 = new LinkedList<>();
 
+        // While stack is not empty
+        while (!queue.isEmpty()) {
+            int value = queue.remove();
 
+            // If value is odd then push
+            // it to the temporary stack
+            if (value % 2 == 1)
+                queue1.add(value);
+        }
+
+        // Transfer the contents of the temporary stack
+        // to the original stack in order to get
+        // the original order of the elements
+        while (!queue1.isEmpty())
+            queue.add(queue1.remove());
+
+        // Print the modified stack content
+        printQueue(queue);
     }
-
     public static void main(String[] args) {
-        Main main = new Main();
-        main.insert(12);
-        main.insert(44);
-        main.insert(15);
-        main.insert(61);
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(16);
+        queue.add(15);
+        queue.add(29);
+        queue.add(29);
+        queue.add(19);
+        queue.add(20);
+        queue.add(21);
 
-        main.delete();
-        main.delete();
-        main.delete();
-        main.delete();
-
+        deleteEven(queue);
 
     }
 }

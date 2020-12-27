@@ -1,40 +1,45 @@
 package com.company;
 
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class Main {
-    int[] que = new int[4];
-    int tail = -1;
-    int head = -1;
+    static Queue<Integer> queue;
 
-    public void insert(int y) {
-        if (tail == 3)
-            System.out.println("the queues is full");
-        else
-            tail++;
-        que[tail] = y;
 
+    static void Print() {
+        while (!queue.isEmpty()) {
+            System.out.println(queue.peek());
+            queue.remove();
+        }
     }
 
-    public void delete() {
-        if (tail == head)
-            System.out.println("the queues is empty");
-        else
-            head++;
-        System.out.println("the queues : " + que[head]);
-
+    static void reverse_queue() {
+        Stack<Integer> stack = new Stack<>();
+        while (!queue.isEmpty()) {
+            stack.add(queue.peek());
+            queue.remove();
+        }
+        while (!stack.isEmpty()) {
+            queue.add(stack.peek());
+            stack.pop();
+        }
     }
+
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.insert(12);
-        main.insert(44);
-        main.insert(44);
-        main.insert(61);
+        queue = new LinkedList<>();
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+        queue.add(40);
+        queue.add(50);
 
-        main.delete();
-        main.delete();
-        main.delete();
-        main.delete();
+
+        reverse_queue();
+        Print();
     }
 }
 

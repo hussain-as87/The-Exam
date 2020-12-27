@@ -1,27 +1,32 @@
 package com.company;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
 public class Main {
-    private final int[] st = new int[4];
-    private int top = -1;
-    IntStream c;
+    static final int[] stack = new int[8];
+    static int top = -1;
 
     public void push(int y) {
-        if (top == 3)
+        if (top == 7)
             System.out.println("the stack is completed");
         else
             top++;
-        st[top] = y;
+        stack[top] = y;
     }
 
-    public void pop() {
+    public static int pop(int n) {
         if (top == -1)
             System.out.println("the stack is empty");
         else
-            System.out.println("(" + Arrays.stream(st).distinct() + ") ");
+            if (n == 0 || n == 1) {
+            return n;
+        }
+        int[] temp = new int[n];
+        int j = 0;
+        for (int i = 0; i < n - 1; i++)
+            if (stack[top] != i + 1) {
+                temp[j++] = stack[top];
+            }
         top--;
+        return j;
     }
 
     public static void main(String[] args) {
@@ -29,13 +34,14 @@ public class Main {
         main.push(1);
         main.push(2);
         main.push(3);
-        main.push(3);
-
-
-        main.pop();
-        /*
-        main.pop();
-        main.pop();
-        main.pop();*/
+        main.push(4);
+        main.push(5);
+        main.push(6);
+        main.push(7);
+        main.push(7);
+        int l = stack.length;
+        l = pop(l);
+        for (int i = 0; i <= l; i++)
+            System.out.print(stack[i] + " ");
     }
 }
