@@ -19,11 +19,11 @@ public class Main {
             if (n == 0 || n == 1) {
             return n;
         }
-        int[] temp = new int[n];
+        int[] t = new int[n];
         int j = 0;
         for (int i = 0; i < n - 1; i++)
             if (stack[top] != i + 1) {
-                temp[j++] = stack[top];
+                t[j++] = stack[top];
             }
         top--;
         return j;
@@ -42,6 +42,6 @@ public class Main {
         int l = stack.length;
         l = pop(l);
         for (int i = 0; i <= l; i++)
-            System.out.print(stack[i] + " ");
+            System.out.println(stack[i] + " ");
     }
 }

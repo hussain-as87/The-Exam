@@ -11,6 +11,7 @@ public class Main {
         fruits[2] = "Strawberry";
         fruits[3] = "Watermelon";
         System.out.println(fruits[1]);
+
         ArrayList <String>fruitList = new ArrayList<>();
         fruitList.add("Mango");
         fruitList.add("Apple");
